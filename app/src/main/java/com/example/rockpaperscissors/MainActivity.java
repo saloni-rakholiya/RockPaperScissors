@@ -1,5 +1,6 @@
 package com.example.rockpaperscissors;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -24,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mRoundsText = findViewById(R.id.rounds_text);
         mRounds = Integer.parseInt(mRoundsText.getText().toString());
+        if(savedInstanceState != null){
+            mRounds = savedInstanceState.getInt("mRounds");
+            mRoundsText.setText(""+mRounds);
+        }
         mIsSinglePlayer = false;
         CheckBox singlePlayerCheckBox = (CheckBox) findViewById(R.id.single_player_checkbox);
         singlePlayerCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -39,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("mRounds", mRounds);
     }
 
     public void addRounds(View view){

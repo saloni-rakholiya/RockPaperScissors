@@ -1,5 +1,6 @@
 package com.example.rockpaperscissors;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
@@ -57,7 +58,31 @@ public class GameActivity extends AppCompatActivity {
         mPlayerOneOption = null;
         mPlayerTwoOption = null;
         mIsRoundOver = false;
+        if (savedInstanceState != null){
+            mCurrentRound = savedInstanceState.getInt("mCurrentRound");
+            mFirstsTurn = savedInstanceState.getBoolean("mFirstsTurn");
+            mIsRoundOver = savedInstanceState.getBoolean("mIsRoundOver");
+            mPlayerOneOption = getViewFromInt(savedInstanceState.getInt("playerOneOption"));
+            mPlayerTwoOption = getViewFromInt(savedInstanceState.getInt("playerTwoOption"));
+            if(mIsRoundOver){
+                displayResult();
+            }
+            mPlayerOneScore = savedInstanceState.getInt("mPlayerOneScore");
+            mPlayerTwoScore = savedInstanceState.getInt("mPlayerTwoScore");
+        }
         displayInfo();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("mCurrentRound", mCurrentRound);
+        outState.putInt("mPlayerOneScore", mPlayerOneScore);
+        outState.putInt("mPlayerTwoScore", mPlayerTwoScore);
+        outState.putBoolean("mIsRoundOver", mIsRoundOver);
+        outState.putBoolean("mFirstsTurn", mFirstsTurn);
+        outState.putInt("playerOneOption", getIntFromView(mPlayerOneOption));
+        outState.putInt("playerTwoOption", getIntFromView(mPlayerTwoOption));
     }
 
     public void onClickOption(View view){
@@ -203,5 +228,25 @@ public class GameActivity extends AppCompatActivity {
             TextView resultText = findViewById(R.id.result_text);
             resultText.setVisibility(View.INVISIBLE);
         }
+    }
+
+    private int getIntFromView(View playerChoice){
+        if(playerChoice == mRockImage)
+            return 0;
+        if(playerChoice == mPaperImage)
+            return 1;
+        if(playerChoice == mScissorsImage)
+            return 2;
+        return -1;
+    }
+
+    private View getViewFromInt(int playerChoice){
+        if(playerChoice == 0)
+            return mRockImage;
+        if(playerChoice == 1)
+            return mPaperImage;
+        if(playerChoice == 2)
+            return mScissorsImage;
+        return null;
     }
 }
