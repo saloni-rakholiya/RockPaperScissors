@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rps_single_line"
+        android:textSize="48sp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/reforma"
+        android:textColor="@color/text"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/reforma"
+            android:text="@string/single_player_mode"
+            android:textColor="@color/text"/>
+
+        <CheckBox
+            android:id="@+id/single_player_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/reforma"
+            android:text="@string/player_one_name"
+            android:textColor="@color/text"/>
+
+        <EditText
+            android:layout_marginRight="100dp"
+            android:maxLines="1"
+            android:id="@+id/player_one_edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/name"
+            android:layout_marginLeft="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/player_two_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/reforma"
+            android:text="@string/player_two_name"
+            android:textColor="@color/text"/>
+
+        <EditText
+            android:layout_marginRight="100dp"
+            android:maxLines="1"
+            android:id="@+id/player_two_edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/name"
+            android:layout_marginLeft="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/reforma"
+            android:text="@string/number_of_rounds"
+            android:textColor="@color/text"/>
+
+        <Button
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            style="@style/Button"
+            android:text="@string/minus"
+            android:layout_marginLeft="16dp"
+            android:onClick="subtractRounds"/>
+
+        <TextView
+            android:id="@+id/rounds_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/reforma"
+            android:text="@string/one"
+            android:textColor="@color/text"
+            android:layout_marginLeft="16dp"/>
+
+        <Button
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            style="@style/Button"
+            android:text="@string/plus"
+            android:layout_marginLeft="16dp"
+            android:onClick="addRounds"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="@string/submit"
+        android:layout_gravity="center"
+        style="@style/Button"
+        android:layout_marginTop="24dp"
+        android:onClick="submitInfo"/>
+
+
+</LinearLayout>

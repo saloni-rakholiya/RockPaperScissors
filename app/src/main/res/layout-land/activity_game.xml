@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_layout"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".GameActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/rounds_layout"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp">
+
+        <TextView
+            android:id="@+id/total_rounds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Rounds: "
+            android:textSize="16sp"
+            android:textColor="@color/text"
+            android:fontFamily="@font/reforma"/>
+
+        <TextView
+            android:id="@+id/current_round"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/reforma"
+            android:text="Current Round:"
+            android:textSize="16sp"
+            android:textColor="@color/text"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp">
+
+        <TextView
+            android:id="@+id/player_one_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player 1's Name: "
+            android:textSize="16sp"
+            android:fontFamily="@font/reforma"
+            android:textColor="@color/text"/>
+
+        <TextView
+            android:id="@+id/player_two_text"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player 2's Name: "
+            android:fontFamily="@font/reforma"
+            android:textColor="@color/text"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/turn_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player's 1 Turn"
+        android:fontFamily="@font/reforma"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/text"/>
+
+    <LinearLayout
+        android:id="@+id/two_image_layout"
+        android:layout_below="@id/turn_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:onClick="onClickOption"
+            android:layout_below="@id/turn_text"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/paper250"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/paper_image"
+            android:layout_marginRight="16dp"/>
+
+        <ImageView
+            android:onClick="onClickOption"
+            android:layout_below="@id/turn_text"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/scissors250"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/scissors_image"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+        <ImageView
+            android:onClick="onClickOption"
+            android:layout_below="@id/turn_text"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/rock250"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/rock_image"
+            android:layout_marginLeft="16dp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next_round_button"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:text="@string/next_round"
+        android:layout_below="@id/two_image_layout"
+        style="@style/Button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:onClick="gotoNextRound"/>
+
+    <TextView
+        android:id="@+id/final_result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_above="@id/result_text"
+        tools:text="Player 1 has won the game."
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:fontFamily="@font/reforma"
+        android:textColor="@color/text" />
+
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        tools:text="Rock beats Paper.\nPlayer 1 winds round 2"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:fontFamily="@font/reforma"
+        android:textColor="@color/text" />
+
+
+</RelativeLayout>

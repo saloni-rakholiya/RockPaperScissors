@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">RockPaperScissors</string>
+    <string name="rock_paper_scissors">ROCK,\nPAPER,\nSCISSORS</string>
+    <string name="rps_single_line">ROCK, PAPER, SCISSORS</string>
+    <string name="player_one_name">PLAYER ONE NAME</string>
+    <string name="player_two_name">PLAYER TWO NAME</string>
+    <string name="name">name</string>
+    <string name="number_of_rounds">NUMBER OF ROUNDS</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="submit">SUBMIT</string>
+    <string name="one">1</string>
+    <string name="next_round">NEXT ROUND</string>
+    <string name="single_player_mode">SINGLE PLAYER MODE</string>
+</resources>
