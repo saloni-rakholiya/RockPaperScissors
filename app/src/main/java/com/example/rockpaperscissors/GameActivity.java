@@ -2,8 +2,10 @@ package com.example.rockpaperscissors;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.IntentCompat;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +32,7 @@ public class GameActivity extends AppCompatActivity {
     private ImageView mPaperImage;
     private ImageView mScissorsImage;
     private Button mNextRoundButton;
+    private Button playagain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,8 @@ public class GameActivity extends AppCompatActivity {
             mTotalRounds = extras.getInt("rounds_number");
         }
         mRockImage = findViewById(R.id.rock_image);
+        playagain=findViewById(R.id.button);
+        playagain.setVisibility(View.INVISIBLE);
         mPaperImage = findViewById(R.id.paper_image);
         mScissorsImage = findViewById(R.id.scissors_image);
         mNextRoundButton = findViewById(R.id.next_round_button);
@@ -190,6 +195,14 @@ public class GameActivity extends AppCompatActivity {
         if(mCurrentRound < mTotalRounds)
             mNextRoundButton.setVisibility(View.VISIBLE);
         else{
+            playagain.setVisibility(View.VISIBLE);
+            playagain.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(GameActivity.this,MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             TextView finalResultText = findViewById(R.id.final_result_text);
             String finalResult;
             if(mPlayerOneScore == mPlayerTwoScore){

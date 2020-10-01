@@ -163,5 +163,15 @@
         android:fontFamily="@font/reforma"
         android:textColor="@color/text" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="#8BC34A"
+        android:textSize="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="play again" />
+
 
 </RelativeLayout>
